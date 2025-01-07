@@ -24,11 +24,25 @@
 
 
     /* HAMBURGER */
-    $('.hamburger').on('click', function () {
+    $('.hamburger').on('click', function (event) {
+      event.stopPropagation();
       $(".hamburger").toggleClass("active")
       $(".side-widget").toggleClass("active")
       $(".section-wrapper").toggleClass("no-transform")
     })
+
+    // Close the Menu if user clicks outside the menu while its open
+    $(document).on('click', function(event) {
+      if (
+        !$(".side-widget").is(event.target) && 
+        $(".side-widget").has(event.target).length == 0 &&
+        !$(".hamburger").is(event.target)
+      ) {
+        $(".hamburger").removeClass("active");
+        $(".side-widget").removeClass("active");
+        $(".section-wrapper").removeClass("no-transform");
+      }
+    });
 
     /* SEARCH */
     $('.search-button').on('click', function () {
