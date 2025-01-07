@@ -269,6 +269,10 @@ button[type="submit"] i {
   transform: translateY(2px);
 }
 
+.about{
+  margin-bottom: 4rem;
+}
+
 /* SPACING */
 .no-spacing {
   margin: 0 !important;
